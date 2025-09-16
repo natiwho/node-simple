@@ -73,3 +73,17 @@ Step 5: access the nodejs application from browser
     docker build -t my-app:1.0 .       
     
 The dot "." at the end of the command denotes location of the Dockerfile.
+
+
+## Run the node app in docker
+
+` docker build -t node-simple .`
+
+```
+docker run -d \
+  -p 3000:3000 \
+  --name my-node-container \
+  --net mongo-network \
+  -e MONGO_URL="mongodb://admin:password@mongo:27017/?authSource=admin" \
+  node-simple
+```
